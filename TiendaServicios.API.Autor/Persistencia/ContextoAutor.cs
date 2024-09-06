@@ -19,23 +19,21 @@ namespace TiendaServicios.API.Autor.Persistencia
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-			if (!optionsBuilder.IsConfigured)
-			{
 				var configuracion = new ConfigurationBuilder()
 					.SetBasePath(Directory.GetCurrentDirectory())
 					.AddJsonFile("appsettings.json")
 					.Build();
-				string cadenaConexion = configuracion.GetSection("AppKeys")["CadenaServicio"];
+				string cadenaConexion = configuracion.GetConnectionString("ConexionServicio");
 				optionsBuilder.UseMySql(cadenaConexion, new MySqlServerVersion(new Version(8,0,34)));
-			}
+
         }
 		protected override void OnModelCreating(ModelBuilder builder)
 		{
-			builder.Entity<AutorLibro>().HasNoKey();
-			builder.Entity<GradoAcademico>().HasNoKey();
+			builder.Entity<AutorLibro>().HasKey("AutorLibroID");
+
+			builder.Entity<GradoAcademico>().HasKey("GradoAcademicoId");
+
 			base.OnModelCreating(builder);
 		}
-
-
     }
 }

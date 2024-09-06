@@ -1,12 +1,26 @@
 ﻿using TiendaServicios.API.Autor.Persistencia;
 using Microsoft.EntityFrameworkCore;
+using MediatR;
+using TiendaServicios.API.Autor.Aplicacion;
+using FluentValidation.AspNetCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 
-// Add DbContext to the services container
+/*Configuraciones para arranque del servicio*/
+
 builder.Services.AddDbContext<ContextoAutor>(options =>
-    options.UseMySql(builder.Configuration.GetConnectionString("ConexionServicio"),
-    new MySqlServerVersion(new Version(8, 0, 34))));
+        options.UseMySql(builder.Configuration.GetConnectionString("ConexionServicio"),
+                         new MySqlServerVersion(new Version(8, 0, 34))));
+
+builder.Services.AddMediatR(typeof(Nuevo.Manejador).Assembly);
+
+builder.Services.AddAutoMapper(typeof(Consulta.Manejador));
+
+builder.Services.AddControllers().AddFluentValidation(cfg => cfg.RegisterValidatorsFromAssemblyContaining<Nuevo>());
+
+
+/*------------------------------------------*/
 
 // Add services to the container.
 
