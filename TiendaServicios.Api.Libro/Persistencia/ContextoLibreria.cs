@@ -10,9 +10,11 @@ namespace TiendaServicios.Api.Libro.Persistencia
 
 		public ContextoLibreria(DbContextOptions<ContextoLibreria> options) : base(options){ }
 
-		public DbSet<LibroMaterial> LibroMaterial  { get; set; }
+        //public DbSet<LibroMaterial> LibroMaterial  { get; set; }
 
-		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        public virtual DbSet<LibroMaterial> LibroMaterial { get; set; }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{
             var configuracion = new ConfigurationBuilder()
 			.SetBasePath(Directory.GetCurrentDirectory())

@@ -41,7 +41,7 @@ namespace TiendaServicios.Api.Libro.Controllers
         [HttpGet("{Id}")]
         public async Task<ActionResult<LibroMaterialDTO>> LibroFiltro(Guid Id)
         {
-            return await _mediator.Send(new ConsultaFiltroLib.LibroUnico { AutorLibro = Id });
+            return await _mediator.Send(new ConsultaFiltroLib.LibroUnico { LibroId = Id });
         }
     }
 }

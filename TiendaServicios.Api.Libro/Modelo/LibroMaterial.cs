@@ -3,7 +3,7 @@ namespace TiendaServicios.Api.Libro.Modelo
 {
 	public class LibroMaterial
 	{
-		public int LibreriaMaterialId { get; set; }
+		public Guid LibreriaMaterialId { get; set; }
 
 		public string? Titulo { get; set; }
 

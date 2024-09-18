@@ -5,6 +5,12 @@ VisualStudioVersion = 25.0.1706.11
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TiendaServicios.API.Autor", "TiendaServicios.API.Autor\TiendaServicios.API.Autor.csproj", "{0DFACFF1-2DC7-4F50-9BA7-C2E8F3365945}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TiendaServicios.Api.Libro", "TiendaServicios.Api.Libro\TiendaServicios.Api.Libro.csproj", "{82B822C1-8A6B-46B0-A434-E88E65192EEC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TiendaServicios.Api.CarritoCompra", "TiendaServicios.Api.CarritoCompra\TiendaServicios.Api.CarritoCompra.csproj", "{2109B036-CBB7-4D41-B0E0-B752D7EC0531}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TiendaServicios.Api.Libro.Test", "TiendaServicios.Api.Libro.Test\TiendaServicios.Api.Libro.Test.csproj", "{19730E4E-B466-46C3-A6F5-65D97D3EDA95}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,11 +21,31 @@ Global
 		{0DFACFF1-2DC7-4F50-9BA7-C2E8F3365945}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0DFACFF1-2DC7-4F50-9BA7-C2E8F3365945}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0DFACFF1-2DC7-4F50-9BA7-C2E8F3365945}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82B822C1-8A6B-46B0-A434-E88E65192EEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82B822C1-8A6B-46B0-A434-E88E65192EEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82B822C1-8A6B-46B0-A434-E88E65192EEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82B822C1-8A6B-46B0-A434-E88E65192EEC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2109B036-CBB7-4D41-B0E0-B752D7EC0531}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2109B036-CBB7-4D41-B0E0-B752D7EC0531}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2109B036-CBB7-4D41-B0E0-B752D7EC0531}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2109B036-CBB7-4D41-B0E0-B752D7EC0531}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19730E4E-B466-46C3-A6F5-65D97D3EDA95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19730E4E-B466-46C3-A6F5-65D97D3EDA95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19730E4E-B466-46C3-A6F5-65D97D3EDA95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19730E4E-B466-46C3-A6F5-65D97D3EDA95}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {97A5CC19-1B16-44FC-825B-E4065FA486AD}
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		Policies = $0
+		$0.TextStylePolicy = $1
+		$1.inheritsSet = null
+		$1.scope = text/x-csharp
+		$0.CSharpFormattingPolicy = $2
+		$2.scope = text/x-csharp
 	EndGlobalSection
 EndGlobal

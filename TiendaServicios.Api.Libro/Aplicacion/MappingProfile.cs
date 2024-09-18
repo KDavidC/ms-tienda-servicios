@@ -8,6 +8,7 @@ namespace TiendaServicios.Api.Libro.Aplicacion
 	{
 		public MappingProfile()
 		{
+            // CreateMap< ModeloOrigen , ModeloDestino>
             CreateMap<LibroMaterial, LibroMaterialDTO>();
         }
 	}

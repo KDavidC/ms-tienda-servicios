@@ -15,7 +15,7 @@ namespace TiendaServicios.Api.Libro.Aplicacion
 
 		public class LibroUnico : IRequest<LibroMaterialDTO>
 		{
-			public Guid AutorLibro  { get; set; }
+			public Guid LibroId  { get; set; }
 		}
 
         public class Manejador : IRequestHandler<LibroUnico, LibroMaterialDTO>
@@ -32,7 +32,7 @@ namespace TiendaServicios.Api.Libro.Aplicacion
             public async Task<LibroMaterialDTO> Handle(LibroUnico request, CancellationToken cancellationToken)
             {
                 
-				var objLibreria = await _contextoLibreria.LibroMaterial.Where(x => x.AutorLibro == request.AutorLibro).FirstOrDefaultAsync();
+				var objLibreria = await _contextoLibreria.LibroMaterial.Where(x => x.LibreriaMaterialId == request.LibroId).FirstOrDefaultAsync();
 				if(objLibreria == null)
 				{
                     throw new Exception("No se encontro el autor");
