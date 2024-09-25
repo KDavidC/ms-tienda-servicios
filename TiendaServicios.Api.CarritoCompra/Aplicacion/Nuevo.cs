@@ -39,22 +39,19 @@ namespace TiendaServicios.Api.CarritoCompra.Aplicacion
                     }
                     //Recuperando el id que se acaba de insertar
                     int sesionId = carritoSesion.carritoSesionId;
-
                     foreach (var item in request.productoLista)
-                    {
+                    {       
                         //por cada elemento de la lista crear un nuevo objeto detalle
                         var detalleSesion = new CarritoSesionDetalle
                         {
                             fechaCreacion = DateTime.Now,
                             carritoSesionId = sesionId,
                             productoSeleccionado = item
-
                         };
                         //insertar en la tabla de detalle con los datos recopilados
                         _contexto.carritoSesionDetalle.Add(detalleSesion);
                     }
                     value = await _contexto.SaveChangesAsync();
-
                     if (value > 0)
                     {
                         return Unit.Value;

@@ -36,7 +36,7 @@ namespace TiendaServicios.API.Autor.Aplicacion
                     return autoresDto;
                 }
                 catch(Exception ex)
-                {
+               {
 
                 }
                 throw new NotImplementedException();

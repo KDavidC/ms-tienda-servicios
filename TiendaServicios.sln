@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TiendaServicios.Api.Carrito
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TiendaServicios.Api.Libro.Test", "TiendaServicios.Api.Libro.Test\TiendaServicios.Api.Libro.Test.csproj", "{19730E4E-B466-46C3-A6F5-65D97D3EDA95}"
 EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{096F7DCB-DDFB-4A14-A946-ABCF3D56E398}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{19730E4E-B466-46C3-A6F5-65D97D3EDA95}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{19730E4E-B466-46C3-A6F5-65D97D3EDA95}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{19730E4E-B466-46C3-A6F5-65D97D3EDA95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{096F7DCB-DDFB-4A14-A946-ABCF3D56E398}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{096F7DCB-DDFB-4A14-A946-ABCF3D56E398}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{096F7DCB-DDFB-4A14-A946-ABCF3D56E398}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{096F7DCB-DDFB-4A14-A946-ABCF3D56E398}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

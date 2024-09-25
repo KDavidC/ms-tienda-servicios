@@ -53,16 +53,41 @@ namespace TiendaServicios.Api.Libro.Test
 			dbSet.As<IAsyncEnumerable<LibroMaterial>>().Setup(x => x.GetAsyncEnumerator(new System.Threading.CancellationToken()))
 			.Returns(new AsyncEnumerator<LibroMaterial>(dataPrueba.GetEnumerator()));
 
+			dbSet.As<IQueryable<LibroMaterial>>().Setup(x => x.Provider).Returns(new AsyncQueryProvider<LibroMaterial>(dataPrueba.Provider));
+
+
 			var contexto = new Mock<ContextoLibreria>();
 			contexto.Setup(x => x.LibroMaterial).Returns(dbSet.Object);
 			return contexto;
 		}
 
+		[Fact]
+		public async void GetLibroId()
+		{
+            System.Diagnostics.Debugger.Launch();
+            var mockContexto = CrearContexto();
+			var mapConfig = new MapperConfiguration(cfg =>
+				cfg.AddProfile(new MappingTest())
+			);
+
+			var mapper = mapConfig.CreateMapper();
+
+			ConsultaFiltroLib.LibroUnico request = new();
+			request.LibroId = Guid.Empty;
+
+            ConsultaFiltroLib.Manejador manejador = new ConsultaFiltroLib.Manejador(mockContexto.Object, mapper);
+
+			var libro = await manejador.Handle(request, new System.Threading.CancellationToken());
+
+			Assert.NotNull(libro);
+			Assert.True(libro.LibreriaMaterialId == Guid.Empty);
+
+        }
 
 		[Fact]
 		public async void GetLibros()
 		{
-			System.Diagnostics.Debugger.Launch();
+			//System.Diagnostics.Debugger.Launch();
 			/*
 				*Emular a la instancia de EF -ContextoLibreria
 				*para emular las acciones y eventos de un objeto en un ambiente de unit test
@@ -93,5 +118,28 @@ namespace TiendaServicios.Api.Libro.Test
 
 			Assert.True(lista.Any());
 		}
+
+		[Fact]
+		public async void GuardaLibro()
+		{
+			System.Diagnostics.Debugger.Launch();
+            var options = new DbContextOptionsBuilder<ContextoLibreria>()
+				.UseInMemoryDatabase(
+					databaseName: "BdTiendaLibro")
+				.Options;
+			var contexto = new ContextoLibreria(options);
+
+			var request = new Nuevo.Ejecuta();
+
+			request.Titulo = "Libro de prueba en memoria";
+			request.FechaPublicacion = DateTime.Now;
+			request.AutorLibro = Guid.Empty;
+
+			var manejador = new Nuevo.Manejador(contexto);
+
+			var resultado = await manejador.Handle(request, new System.Threading.CancellationToken());
+
+			Assert.True(resultado != null);
+        }
 	}
 }

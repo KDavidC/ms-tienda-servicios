@@ -10,6 +10,8 @@ namespace TiendaServicios.Api.CarritoCompra.Aplicacion
 		public string  AutorLibro { get; set; }
 
 		public DateTime? FechaPublicacion { get; set; }
+
+		
 	}
 }
 
